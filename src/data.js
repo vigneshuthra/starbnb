@@ -39,4 +39,5 @@ export default [
       openSpots: 3,
   },
   
+  
 ]

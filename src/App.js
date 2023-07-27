@@ -3,22 +3,28 @@ import Navbar from "./components/Navbar";
 import "./style.css";
 import Grid from "./components/Grid";
 import Card from "./components/Card";
-import cardimg from "./images/katie-zaferes.png";
-
+import data from "./data";
 // <Grid/>
 
 function App() {
+  const cards = data.map((item) => {
+    return (
+      <Card
+        img={item.coverImg}
+        rating={item.stats.rating}
+        reviewCount={item.stats.reviewCount}
+        location={item.location}
+        title={item.title}
+        price={item.price}
+      
+      />
+    );
+  });
+
   return (
     <div className="App">
       <Navbar />
-      <Card
-        img={cardimg}
-        rating="5.0"
-        reviewCount={6}
-        country="USA"
-        title="Life Lessons with Katie Zaferes"
-        price={136}
-      />
+      <section className="cards-list">{cards}</section>{" "}
     </div>
   );
 }
